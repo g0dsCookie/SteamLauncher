@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+﻿using System.IO;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace CookieProjects.SteamLauncher.SteamConfig
 {
@@ -35,7 +29,7 @@ namespace CookieProjects.SteamLauncher.SteamConfig
 		{
 			var pair = ExtractValueLine.Matches(line);
 			if (pair.Count < 1)
-				throw new Exception($"Unknown line: {line}"); // TODO: Create exception
+				throw new SteamConfigValueException(line);
 
 			var key = pair[0].Groups["tag"].Value;
 			var value = pair[0].Groups["value"].Value;

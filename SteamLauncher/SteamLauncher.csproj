@@ -44,16 +44,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Localization\strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>strings.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SteamConfig\ISteamConfigEntry.cs" />
     <Compile Include="SteamConfig\SteamConfigParser.cs" />
     <Compile Include="SteamConfig\SteamConfigSection.cs" />
     <Compile Include="SteamConfig\SteamConfigType.cs" />
     <Compile Include="SteamConfig\SteamConfigValue.cs" />
+    <Compile Include="SteamConfig\SteamConfigValueException.cs" />
     <Compile Include="SteamConfig\SteamGame.cs" />
     <Compile Include="SteamConfig\SteamUtils.cs" />
     <Compile Include="SteamLauncherCommand.cs" />
     <Compile Include="SteamLauncherPlugin.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
