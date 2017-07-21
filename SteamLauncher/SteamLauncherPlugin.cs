@@ -1,9 +1,5 @@
 ﻿using CookieProjects.SteamLauncher.SteamConfig;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WinCommandPalette.Plugin;
 using WinCommandPalette.Plugin.CommandBase;
 
