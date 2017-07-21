@@ -23,10 +23,7 @@ namespace CookieProjects.SteamLauncher
 		{
 			var games = SteamUtils.LoadGames();
 			foreach (var g in games)
-			{
-				System.IO.File.AppendAllText(System.IO.Path.Combine(Environment.CurrentDirectory, "steam.log"), $"Adding {g.Name}");
 				AutoRegisterCommands.Add(new SteamLauncherCommand(g.Name, g.AppId.ToString()));
-			}
 
 			base.OnCreation();
 		}
