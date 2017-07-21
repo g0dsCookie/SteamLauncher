@@ -20,7 +20,7 @@ namespace CookieProjects.SteamLauncher
 		public SteamLauncherCommand(string name, string appid)
 		{
 			this.Name = name;
-			this.Description = $"Run steam game {name}";
+			this.Description = Localization.strings.CommandDescription.Replace("{{name}}", name);
 			this.AppId = appid;
 		}
 

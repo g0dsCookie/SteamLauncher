@@ -10,7 +10,7 @@ namespace CookieProjects.SteamLauncher
 		public override PluginMeta PluginMeta => new PluginMeta()
 		{
 			Author = "g0dsCookie",
-			Description = "Launch your steam games from WinCommandPalette."
+			Description = Localization.strings.PluginDescription
 		};
 
 		public override List<ICommandBase> AutoRegisterCommands { get; } = new List<ICommandBase>();

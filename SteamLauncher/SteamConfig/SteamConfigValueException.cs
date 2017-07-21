@@ -7,7 +7,7 @@ namespace CookieProjects.SteamLauncher.SteamConfig
 		public string Line { get; }
 
 		public SteamConfigValueException(string line)
-			: base($"Unknown line {line}")
+			: base(Localization.strings.SteamConfigValueException.Replace("{{line}}", line))
 		{
 			this.Line = line;
 		}
