@@ -19,13 +19,13 @@ namespace CookieProjects.SteamLauncher
 
 		public override List<ICommandBase> AutoRegisterCommands { get; } = new List<ICommandBase>();
 
-		public override void OnCreation()
+		public override void OnLoad()
 		{
 			var games = SteamUtils.LoadGames();
 			foreach (var g in games)
 				AutoRegisterCommands.Add(new SteamLauncherCommand(g.Name, g.AppId.ToString()));
 
-			base.OnCreation();
+			base.OnLoad();
 		}
 	}
 }
