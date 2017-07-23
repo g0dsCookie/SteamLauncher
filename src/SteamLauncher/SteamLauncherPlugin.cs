@@ -1,7 +1,5 @@
 ﻿using CookieProjects.SteamLauncher.SteamConfig;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Threading;
 using WinCommandPalette.Plugin;
 using WinCommandPalette.Plugin.CommandBase;
 
@@ -19,8 +17,6 @@ namespace CookieProjects.SteamLauncher
 
 		public override void OnLoad()
 		{
-			Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("de-DE");
-
 			var games = SteamUtils.LoadGames();
 			foreach (var g in games)
 				AutoRegisterCommands.Add(new SteamLauncherCommand(g.Name, g.AppId.ToString()));
