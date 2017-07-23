@@ -7,7 +7,7 @@ Just hit your shortcut keys, type in the game name and hit enter.
 
 # Installation
 
-Download the latest release and extract the .zip file. Copy the *SteamLauncher* directory into your *Plugins* directory,
+Download the latest release and extract the .zip file. Copy the *SteamLauncher* directory into your *WinCommandPalette* directory,
 restart WinCommandPalette and have fun with your new steam shortcuts.
 
 # Reload games
