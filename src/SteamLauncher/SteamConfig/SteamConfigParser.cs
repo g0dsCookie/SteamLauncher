@@ -32,11 +32,14 @@ namespace CookieProjects.SteamLauncher.SteamConfig
 		{
 			get
 			{
-				return this.rootSection[key];
+				return this.RootSection[key];
 			}
 		}
 
-		SteamConfigSection rootSection;
+		/// <summary>
+		/// The root section of the current parser.
+		/// </summary>
+		public SteamConfigSection RootSection { get; private set; }
 
 		/// <summary>
 		/// Initializes a new instance of <see cref="SteamConfigParser"/>.
@@ -77,7 +80,7 @@ namespace CookieProjects.SteamLauncher.SteamConfig
 			while (reader.ReadLine().Trim() != "{") {}
 
 			if (section == null)
-				section = this.rootSection = new SteamConfigSection(name);
+				section = this.RootSection = new SteamConfigSection(name);
 
 			var line = "";
 			while (!reader.EndOfStream)
@@ -106,11 +109,5 @@ namespace CookieProjects.SteamLauncher.SteamConfig
 			using (var reader = new StreamReader(this.File))
 				this.LoadSection(reader, null, reader.ReadLine().Trim('"'));
 		}
-
-		/// <summary>
-		/// Get the current root section.
-		/// </summary>
-		/// <returns></returns>
-		public SteamConfigSection GetRoot() => this.rootSection;
 	}
 }

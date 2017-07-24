@@ -44,7 +44,7 @@ namespace CookieProjects.SteamLauncher.SteamConfig
 		{
 			var parser = new SteamConfigParser(file);
 			parser.Parse();
-			return parser.GetRoot();
+			return parser.RootSection;
 		}
 
 		/// <summary>
