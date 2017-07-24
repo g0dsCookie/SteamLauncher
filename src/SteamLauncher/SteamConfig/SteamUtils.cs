@@ -6,22 +6,26 @@ namespace CookieProjects.SteamLauncher.SteamConfig
 {
 	public static class SteamUtils
 	{
-		static string _SteamDirectory = string.Empty;
 		public static string SteamDirectory
 		{
 			get
 			{
-				if (string.IsNullOrWhiteSpace(_SteamDirectory))
+				var cfg = Config.GlobalConfig;
+				if (string.IsNullOrWhiteSpace(cfg.SteamDirectory))
 				{
 					string reg = @"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Valve\Steam\";
 					if (!Environment.Is64BitOperatingSystem)
 						reg = @"HKEY_LOCAL_MACHINE\SOFTWARE\Valve\Steam\";
-					_SteamDirectory = Microsoft.Win32.Registry.GetValue(reg, "InstallPath", @"C:\Program Files(x86)\Steam").ToString();
+					cfg.SteamDirectory = Microsoft.Win32.Registry.GetValue(reg, "InstallPath", @"C:\Program Files(x86)\Steam").ToString();
 
-					if (string.IsNullOrWhiteSpace(_SteamDirectory) || !Directory.Exists(_SteamDirectory))
-						_SteamDirectory = Environment.ExpandEnvironmentVariables(@"%ProgramFiles%\Steam");
+					if (string.IsNullOrWhiteSpace(cfg.SteamDirectory) || !Directory.Exists(cfg.SteamDirectory))
+						cfg.SteamDirectory = Environment.ExpandEnvironmentVariables(@"%ProgramFiles%\Steam");
 				}
-				return _SteamDirectory;
+				return cfg.SteamDirectory;
+			}
+			set
+			{
+				Config.GlobalConfig.SteamDirectory = value;
 			}
 		}
 

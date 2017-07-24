@@ -44,6 +44,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config.cs" />
     <Compile Include="Localization\strings.de.Designer.cs">
       <DependentUpon>strings.de.resx</DependentUpon>
       <AutoGen>True</AutoGen>
