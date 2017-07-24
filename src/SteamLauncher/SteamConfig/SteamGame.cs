@@ -29,14 +29,13 @@ namespace CookieProjects.SteamLauncher.SteamConfig
 		/// <returns></returns>
 		public static SteamGame LoadFromAcf(string file)
 		{
-			var parser = new SteamConfigParser(file);
-			parser.Parse();
-
+			var config = SteamUtils.LoadSteamConfig(file);
+			
 			return new SteamGame
 			{
-				AppId = Convert.ToInt32(parser["appid"].ToString()),
-				Name = parser["name"].ToString(),
-				InstallDir = parser["installdir"].ToString()
+				AppId = Convert.ToInt32(config["appid"].ToString()),
+				Name = config["name"].ToString(),
+				InstallDir = config["installdir"].ToString()
 			};
 		}
 	}

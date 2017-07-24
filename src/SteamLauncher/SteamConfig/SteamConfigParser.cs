@@ -24,19 +24,6 @@ namespace CookieProjects.SteamLauncher.SteamConfig
 		public string File { get; }
 
 		/// <summary>
-		/// Get the value of the given key.
-		/// </summary>
-		/// <param name="key">The key to look for.</param>
-		/// <returns></returns>
-		public ISteamConfigEntry this[string key]
-		{
-			get
-			{
-				return this.RootSection[key];
-			}
-		}
-
-		/// <summary>
 		/// The root section of the current parser.
 		/// </summary>
 		public SteamConfigSection RootSection { get; private set; }
