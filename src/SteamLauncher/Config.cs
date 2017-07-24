@@ -4,12 +4,25 @@ using System.Xml.Serialization;
 
 namespace CookieProjects.SteamLauncher
 {
+	/// <summary>
+	/// Holds all configuration variables for <see cref="SteamLauncherPlugin"/>
+	/// </summary>
 	public class Config
 	{
+		/// <summary>
+		/// Get the global configuration.
+		/// </summary>
 		public static Config GlobalConfig { get; } = Load("SteamLauncher.xml");
 
+		/// <summary>
+		/// Get or set the path to the steam directory.
+		/// </summary>
 		public string SteamDirectory { get; set; }
 
+		/// <summary>
+		/// Save the current configuration.
+		/// </summary>
+		/// <param name="file">The file where to store the configuration.</param>
 		public void Save(string file)
 		{
 			var ns = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
@@ -20,6 +33,11 @@ namespace CookieProjects.SteamLauncher
 				serializer.Serialize(xml, this);
 		}
 
+		/// <summary>
+		/// Load the configuration.
+		/// </summary>
+		/// <param name="file">The file where to load the configuration from.</param>
+		/// <returns></returns>
 		public static Config Load(string file)
 		{
 			if (!File.Exists(file))

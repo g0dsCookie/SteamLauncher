@@ -4,8 +4,14 @@ using System.IO;
 
 namespace CookieProjects.SteamLauncher.SteamConfig
 {
+	/// <summary>
+	/// Contains useful methods for steam interaction.
+	/// </summary>
 	public static class SteamUtils
 	{
+		/// <summary>
+		/// Get or set the steam directory.
+		/// </summary>
 		public static string SteamDirectory
 		{
 			get
@@ -29,6 +35,11 @@ namespace CookieProjects.SteamLauncher.SteamConfig
 			}
 		}
 
+		/// <summary>
+		/// Load the given steam configuration file.
+		/// </summary>
+		/// <param name="file">The steam configuration to parse.</param>
+		/// <returns></returns>
 		public static SteamConfigSection LoadSteamConfig(string file)
 		{
 			var parser = new SteamConfigParser(file);
@@ -36,6 +47,10 @@ namespace CookieProjects.SteamLauncher.SteamConfig
 			return parser.GetRoot();
 		}
 
+		/// <summary>
+		/// Load all known libraries from steam.
+		/// </summary>
+		/// <returns></returns>
 		public static string[] LoadSteamLibraries()
 		{
 			var baseDir = Path.Combine(SteamDirectory, "steamapps");
@@ -56,6 +71,10 @@ namespace CookieProjects.SteamLauncher.SteamConfig
 			return libList.ToArray();
 		}
 
+		/// <summary>
+		/// Load all installed games from steam.
+		/// </summary>
+		/// <returns></returns>
 		public static SteamGame[] LoadGames()
 		{
 			var libs = LoadSteamLibraries();
@@ -65,6 +84,11 @@ namespace CookieProjects.SteamLauncher.SteamConfig
 			return gameList.ToArray();
 		}
 
+		/// <summary>
+		/// Load all installed games from the given library.
+		/// </summary>
+		/// <param name="library">The steam library folder, where to load the games from.</param>
+		/// <returns></returns>
 		public static SteamGame[] LoadGames(string library)
 		{
 			var gameList = new List<SteamGame>();
