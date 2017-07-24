@@ -52,14 +52,5 @@ namespace CookieProjects.SteamLauncher.SteamConfig
 		/// <param name="key">The key to look for.</param>
 		/// <returns>Returns true if the key exists.</returns>
 		public bool Contains(string key) => this.entries.ContainsKey(key);
-
-		/// <summary>
-		/// Return all values as <see cref="List{ISteamConfigEntry}"/>.
-		/// </summary>
-		/// <returns></returns>
-		public List<ISteamConfigEntry> GetValues()
-		{
-			return new List<ISteamConfigEntry>(from KeyValuePair<string, ISteamConfigEntry> kvp in this.entries select kvp.Value);
-		}
 	}
 }
