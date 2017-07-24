@@ -23,5 +23,10 @@ namespace CookieProjects.SteamLauncher
 
 			base.OnLoad();
 		}
+
+		~SteamLauncherPlugin()
+		{
+			Config.GlobalConfig.Save("SteamLauncher.xml");
+		}
 	}
 }
