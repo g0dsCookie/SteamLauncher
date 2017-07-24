@@ -1,16 +1,18 @@
 @echo off
 
-echo "This batch should be run with the Developer Command Line from Visual Studio."
-echo "Also this batch needs 7z to be in your path."
+SET projectName=SteamLauncher
+
+echo This batch should be run with the Developer Command Line from Visual Studio.
+echo Also this batch needs 7z to be in your path.
 pause
 
-echo "Building SteamLauncher..."
+echo Building %projectName%...
 msbuild Build.proj
 
-echo "Zipping Folder..."
+echo Zipping Folder...
 cd bin
-7z a -tzip -mx9 -y SteamLauncher.zip *
+7z a -tzip -mx9 -y %projectName%.zip *
 cd ..
 
-echo "Done!"
+echo Done!
 pause
