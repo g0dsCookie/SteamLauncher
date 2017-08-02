@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -10,9 +11,18 @@ namespace CookieProjects.SteamLauncher
 	public class Config
 	{
 		/// <summary>
+		/// Get the configuration file path.
+		/// </summary>
+		public static string ConfigurationFile =>
+			Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+				"IrataProjects",
+				"WinCommandPalette",
+				"SteamLauncher.xml");
+
+		/// <summary>
 		/// Get the global configuration.
 		/// </summary>
-		public static Config GlobalConfig { get; } = Load("SteamLauncher.xml");
+		public static Config GlobalConfig { get; } = Load(ConfigurationFile);
 
 		/// <summary>
 		/// Get or set the path to the steam directory.
