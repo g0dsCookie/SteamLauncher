@@ -19,7 +19,7 @@
 	</Target>
 
 	<Target Name="Build">
-		<MSBuild Projects="src\$(ProjectName).sln" Properties="Configuration=Release"/>
+		<MSBuild Projects="src\$(ProjectName).sln" Properties="Configuration=Release" Targets="Rebuild"/>
 	</Target>
 
 	<Target Name="Copy">
